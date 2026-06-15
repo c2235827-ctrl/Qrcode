@@ -6,6 +6,11 @@ interface FlyerFormProps {
   onChange: (updates: Partial<FlyerConfig>) => void;
 }
 
+const COLOR_PRESETS = [
+  '#2F6FF0', '#10B981', '#F59E0B', '#EF4444', 
+  '#8B5CF6', '#EC4899', '#06B6D4', '#0F172A'
+];
+
 export function FlyerForm({ config, onChange }: FlyerFormProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -144,14 +149,27 @@ export function FlyerForm({ config, onChange }: FlyerFormProps) {
         
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Accent Color</label>
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Accent Color</label>
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {COLOR_PRESETS.map(color => (
+                <button
+                  key={color}
+                  type="button"
+                  onClick={() => onChange({ accentColor: color })}
+                  className={`w-6 h-6 rounded-full border-2 transition-transform ${config.accentColor.toLowerCase() === color.toLowerCase() ? 'scale-110 border-slate-400 shadow-sm' : 'border-transparent hover:scale-110'}`}
+                  style={{ backgroundColor: color }}
+                  title={color}
+                />
+              ))}
+            </div>
             <div className="flex items-center gap-2">
               <input
                 type="color"
                 name="accentColor"
                 value={config.accentColor}
                 onChange={handleChange}
-                className="w-full h-9 rounded-md cursor-pointer border-2 border-slate-200 p-0 overflow-hidden"
+                className="w-full h-8 rounded-md cursor-pointer border border-slate-200 p-0 overflow-hidden"
+                style={{ WebkitAppearance: 'none' }}
               />
             </div>
           </div>
@@ -199,3 +217,4 @@ function getHint(type: DestinationType) {
     default: return 'Full web address';
   }
 }
+
