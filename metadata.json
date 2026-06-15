@@ -1,0 +1,6 @@
+{
+  "name": "Flyer & QR Generator",
+  "description": "Generate printable flyers with embedded QR codes for any business or destination.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
