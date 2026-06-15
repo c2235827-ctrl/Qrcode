@@ -2,10 +2,33 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react(), 
+      tailwindcss(),
+      VitePWA({
+        registerType: 'autoUpdate',
+        includeAssets: ['favicon.ico', 'icon.png'],
+        manifest: {
+          name: 'Universal Flyer Generator',
+          short_name: 'Flyer Gen',
+          description: 'Generate printable flyers with embedded QR codes',
+          theme_color: '#F1F5F9',
+          background_color: '#F1F5F9',
+          display: 'standalone',
+          icons: [
+            {
+              src: 'https://cdn-icons-png.flaticon.com/512/13481/13481093.png',
+              sizes: '512x512',
+              type: 'image/png'
+            }
+          ]
+        }
+      })
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

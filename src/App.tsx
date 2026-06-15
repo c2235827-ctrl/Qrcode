@@ -18,6 +18,7 @@ const DEFAULT_CONFIG: FlyerConfig = {
   footerText: 'Scan to connect with us',
   accentColor: '#2F6FF0',
   bgStyle: 'dark_navy',
+  fontFamily: 'font-montserrat',
 };
 
 export default function App() {

@@ -62,7 +62,8 @@ export function FlyerPreview({ config, flyerRef }: FlyerPreviewProps) {
       ref={flyerRef}
       className={cn(
         "relative w-[1080px] h-[1350px] flex flex-col items-center justify-between p-24 overflow-hidden rounded-[40px] shadow-[0_40px_100px_rgba(0,0,0,0.4)]",
-        bgClasses[bgStyle]
+        bgClasses[bgStyle],
+        config.fontFamily
       )}
       style={{
         ...getGradientStyle(),
@@ -93,7 +94,7 @@ export function FlyerPreview({ config, flyerRef }: FlyerPreviewProps) {
         )}
         
         <h1 className={cn(
-          "font-display font-black text-[84px] leading-[1.1] text-center max-w-[950px] text-balance uppercase tracking-tight drop-shadow-2xl",
+          "font-black text-[84px] leading-[1.1] text-center max-w-[950px] text-balance uppercase tracking-tight drop-shadow-2xl",
           bgStyle === 'light_white' ? 'text-[#0D1F3D]' : 'text-white'
         )}>
           {headline || "Your Attention-Grabbing Headline"}
@@ -108,7 +109,7 @@ export function FlyerPreview({ config, flyerRef }: FlyerPreviewProps) {
               {qrCodeDataUrl ? (
                 <img src={qrCodeDataUrl} alt="QR Code" className="w-[440px] h-[440px] mix-blend-multiply" />
               ) : (
-                <div className="text-slate-400 text-center text-3xl max-w-sm font-sans font-medium uppercase tracking-wide">
+                <div className="text-slate-400 text-center text-3xl max-w-sm font-medium uppercase tracking-wide">
                   Enter a destination to generate QR
                 </div>
               )}
@@ -124,14 +125,14 @@ export function FlyerPreview({ config, flyerRef }: FlyerPreviewProps) {
               borderColor: bgStyle === 'light_white' ? '#fff' : '#0D1F3D'
             }}
           >
-             <span className="font-display font-black text-4xl tracking-wider uppercase">SCAN ME</span>
+             <span className="font-black text-4xl tracking-wider uppercase">SCAN ME</span>
           </div>
         </div>
 
         {ctaText && (
           <p 
             className={cn(
-              "mt-20 font-sans font-bold text-[36px] max-w-[800px] text-center uppercase tracking-wide leading-relaxed",
+              "mt-20 font-bold text-[36px] max-w-[800px] text-center uppercase tracking-wide leading-relaxed",
               bgStyle === 'light_white' ? 'text-[#0D1F3D]' : ''
             )}
             style={{ color: bgStyle === 'light_white' ? '#0D1F3D' : accentColor }}
@@ -147,7 +148,7 @@ export function FlyerPreview({ config, flyerRef }: FlyerPreviewProps) {
           <>
             <div className="h-[2px] w-full max-w-[700px] mb-8" style={{ backgroundColor: bgStyle === 'light_white' ? 'rgba(13,31,61,0.1)' : 'rgba(255,255,255,0.1)' }}></div>
             <p className={cn(
-              "text-center font-sans text-2xl uppercase tracking-[0.2em] font-medium opacity-60",
+              "text-center text-2xl uppercase tracking-[0.2em] font-medium opacity-60",
               bgStyle === 'light_white' ? 'text-[#0D1F3D]' : 'text-white'
             )}>
               {footerText}

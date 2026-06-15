@@ -20,4 +20,5 @@ export interface FlyerConfig {
   footerText: string;
   accentColor: string;
   bgStyle: BackgroundStyle;
+  fontFamily: string;
 }

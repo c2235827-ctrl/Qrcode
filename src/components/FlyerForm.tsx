@@ -180,12 +180,29 @@ export function FlyerForm({ config, onChange }: FlyerFormProps) {
                 name="bgStyle"
                 value={config.bgStyle}
                 onChange={handleChange}
-                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#2F6FF0] focus:border-[#2F6FF0] transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#2F6FF0] focus:border-[#2F6FF0] transition-colors mb-4"
               >
                 <option value="dark_navy">Dark Navy</option>
                 <option value="light_white">Light / White</option>
                 <option value="gradient">Gradient</option>
               </select>
+
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Typography</label>
+              <select
+                 name="fontFamily"
+                 value={config.fontFamily}
+                 onChange={handleChange}
+                 className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#2F6FF0] focus:border-[#2F6FF0] transition-colors"
+               >
+                 <option value="font-poppins">Poppins</option>
+                 <option value="font-inter">Inter</option>
+                 <option value="font-space">Space Grotesk</option>
+                 <option value="font-playfair">Playfair Display</option>
+                 <option value="font-roboto">Roboto</option>
+                 <option value="font-montserrat">Montserrat</option>
+                 <option value="font-lato">Lato</option>
+                 <option value="font-oswald">Oswald</option>
+               </select>
           </div>
         </div>
       </div>
