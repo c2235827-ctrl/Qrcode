@@ -8,6 +8,7 @@ import QRCode from 'qrcode';
 import { generateTargetUrl } from './lib/utils';
 
 const DEFAULT_CONFIG: FlyerConfig = {
+  flyerMode: 'universal',
   destinationType: 'website',
   destinationUrl: '',
   referralTemplate: 'https://example.com/?ref={code}',

@@ -9,7 +9,10 @@ export type DestinationType =
 
 export type BackgroundStyle = 'dark_navy' | 'light_white' | 'gradient';
 
+export type FlyerMode = 'universal' | 'business' | 'ambassador';
+
 export interface FlyerConfig {
+  flyerMode: FlyerMode;
   destinationType: DestinationType;
   destinationUrl: string;
   referralTemplate: string;
@@ -22,3 +25,4 @@ export interface FlyerConfig {
   bgStyle: BackgroundStyle;
   fontFamily: string;
 }
+
